@@ -69,15 +69,21 @@
     const Medal = ({size=24, className=""}) => <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"></path><path d="M11 12 5.12 2.2"></path><path d="m13 12 5.88-9.8"></path><path d="M8 7h8"></path><circle cx="12" cy="17" r="5"></circle><path d="M12 18v-2h-.5"></path></svg>;
 
     // ==========================================
-    // 퀴즈 데이터 
+    // 🎵 퀴즈 데이터 및 유튜브 설정 (가장 중요!!!) 🎵
+    // 선생님이 실제 사용할 영상에 맞춰 아래 내용을 수정해 주세요!
     // ==========================================
+    
+    // 1. 유튜브 영상 ID 입력
+    // 주소창에서 v= 뒤에 있는 문자열입니다. (예: https://youtube.com/watch?v=kcmwupyOu7Q -> kcmwupyOu7Q)
     const YOUTUBE_VIDEO_ID = "kcmwupyOu7Q"; 
 
+    // 2. 가사 및 빈칸 설정
     const QUIZ_DATA = [
       {
         id: 0,
-        hint: "일의 양을 구하는 공식과 단위",
+        hint: "일의 양을 구하는 공식과 단위", // 대시보드에 보일 힌트
         parts: [
+          // isBlank: true 가 있는 줄이 빈칸(정답)이 됩니다.
           { text: "가만히 든 물통처럼 거리 없으면 일은 안 돼. 일 양을 알고 싶다면 공식 하나 꼭 기억해. 일은 " },
           { text: "힘 곱하기 거리", isBlank: true },
           { text: " 단위는 " },
@@ -86,6 +92,7 @@
           { text: "이동하면", isBlank: true },
           { text: " 그게 바로 1줄이야 🎵" }
         ],
+        // 이 가사가 시작되는 유튜브 영상의 초(seconds). (예: 1분 18초면 78)
         startTime: 18 
       },
       {
@@ -111,7 +118,7 @@
           { text: "이 같아야 일이 되는 거야. 미끄러지는 스케이트처럼 움직여도 " },
           { text: "힘이 없다면", isBlank: true },
           { text: " 일은 없어. 또 하나 물통 들고 가만히 있어. 힘은 줬지만 " },
-          { text: "이동 안 했으니", isBlank: true },
+          { text: "안 움직여 이동 안했으니", isBlank: true },
           { text: " 일은 없어 🎵" }
         ],
         startTime: 66 
@@ -143,34 +150,6 @@
           { text: " 추를 들어올리면 일을 해서 에너지가 저장돼 🎵" }
         ],
         startTime: 100 
-      },
-      {
-        id: 5,
-        hint: "위치 에너지의 크기를 결정하는 요소",
-        parts: [
-          { text: "높은 곳에 있는 물체는 에너지를 가져. 질량과 높이에 비례하는 " },
-          { text: "위치 에너지", isBlank: true },
-          { text: " 크기를 구하고 싶다면 " },
-          { text: "9.8 곱하기 질량 곱하기 높이", isBlank: true },
-          { text: " 기준면이 어디냐에 따라서 높이가 달라지니까 " },
-          { text: "에너지 크기도 달라져", isBlank: true },
-          { text: " 🎵" }
-        ],
-        startTime: 115 
-      },
-      {
-        id: 6,
-        hint: "운동 에너지 공식과 속력의 관계",
-        parts: [
-          { text: "굴러가는 공처럼 움직이는 물체는 " },
-          { text: "운동 에너지", isBlank: true },
-          { text: "를 가지고 있어. 구하는 공식은 " },
-          { text: "2분의 1 질량 속력 제곱", isBlank: true },
-          { text: " 속력이 두 배로 빨라지면 에너지는 제곱이 되니까 " },
-          { text: "네 배로 커지게", isBlank: true },
-          { text: " 되는 거야 🎵" }
-        ],
-        startTime: 135 
       }
     ];
 
