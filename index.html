@@ -390,7 +390,7 @@
         if (isReady && playerRef.current && playTrigger > 0) {
            playerRef.current.seekTo(startTime);
            playerRef.current.playVideo();
-           playerRef.current.setPlaybackRate(speed || 1.25);
+           playerRef.current.setPlaybackRate(speed || 1.75);
         }
       }, [playTrigger, startTime, isReady, speed]);
 
@@ -405,14 +405,14 @@
       useEffect(() => {
         if (isReady && playerRef.current && resumeTrigger > 0) {
            playerRef.current.playVideo();
-           playerRef.current.setPlaybackRate(speed || 1.25);
+           playerRef.current.setPlaybackRate(speed || 1.75);
         }
       }, [resumeTrigger, isReady, speed]);
 
       // 실시간 배속 즉시 변경 트리거
       useEffect(() => {
         if (isReady && playerRef.current && typeof playerRef.current.setPlaybackRate === 'function') {
-           playerRef.current.setPlaybackRate(speed || 1.25);
+           playerRef.current.setPlaybackRate(speed || 1.75);
         }
       }, [speed, isReady]);
 
@@ -430,7 +430,7 @@
       const [playTrigger, setPlayTrigger] = useState(0); 
       const [pauseTrigger, setPauseTrigger] = useState(0); 
       const [resumeTrigger, setResumeTrigger] = useState(0); 
-      const [currentSpeed, setCurrentSpeed] = useState(1.5); 
+      const [currentSpeed, setCurrentSpeed] = useState(1.75); 
       const currentQuiz = QUIZ_DATA[gameState.currentQuestionIndex] || QUIZ_DATA[0];
       
       const handleStateChange = async (newState) => {
@@ -557,11 +557,11 @@
                       {gameState.status === 'playing' && (
                         <>
                           <div className="flex gap-2">
-                            <button onClick={() => { setCurrentSpeed(1.5); setPlayTrigger(Date.now()); }} className="flex-1 bg-purple-600 hover:bg-purple-500 text-white px-4 py-3 rounded-xl font-bold shadow-lg shadow-purple-500/30 transition-all flex items-center justify-center gap-2 text-sm md:text-base">
-                              <Play size={18} fill="currentColor" /> 처음부터 듣기 (1.5x)
+                            <button onClick={() => { setCurrentSpeed(1.75); setPlayTrigger(Date.now()); }} className="flex-1 bg-purple-600 hover:bg-purple-500 text-white px-4 py-3 rounded-xl font-bold shadow-lg shadow-purple-500/30 transition-all flex items-center justify-center gap-2 text-sm md:text-base">
+                              <Play size={18} fill="currentColor" /> 처음부터 듣기 (1.75x)
                             </button>
-                            <button onClick={() => { setCurrentSpeed(1.25); setPlayTrigger(Date.now()); }} className="flex-1 bg-pink-600 hover:bg-pink-500 text-white px-4 py-3 rounded-xl font-bold shadow-lg shadow-pink-500/30 transition-all flex items-center justify-center gap-2 text-sm md:text-base">
-                              <Play size={18} fill="currentColor" /> 처음부터 듣기 (1.25x)
+                            <button onClick={() => { setCurrentSpeed(1.5); setPlayTrigger(Date.now()); }} className="flex-1 bg-pink-600 hover:bg-pink-500 text-white px-4 py-3 rounded-xl font-bold shadow-lg shadow-pink-500/30 transition-all flex items-center justify-center gap-2 text-sm md:text-base">
+                              <Play size={18} fill="currentColor" /> 처음부터 듣기 (1.5x)
                             </button>
                           </div>
                           <div className="flex gap-2">
